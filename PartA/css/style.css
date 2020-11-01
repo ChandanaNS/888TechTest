@@ -1,0 +1,333 @@
+body {
+  margin: auto;
+  font-family: sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+.center {
+  display: flex;
+  height: 100vh;
+}
+
+/* flipcard */
+
+#flip-card-inner.flip .flip-card-front {
+  -moz-animation: cssAnimation 0s ease-in 0.2s forwards;
+  -webkit-animation: cssAnimation 0s ease-in 0.2s forwards;
+  -o-animation: cssAnimation 0s ease-in 0.2s forwards;
+  animation: cssAnimation 0s ease-in 0.2s forwards;
+}
+
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.card-image {
+  float: left;
+}
+
+.card-image > img {
+  width: 256px;
+  height: 210px;
+  display: block;
+}
+
+.card-details {
+  padding: 14px;
+  float: left;
+  width: 398px;
+  height: 182px;
+  text-align: left;
+  background-color: #272727;
+  color: #fff;
+  overflow: hidden;
+}
+
+#trapezoid {
+  position: absolute;
+  right: -28px;
+  height: 0;
+  border-bottom: 30px solid #f95f1e;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  transform: rotate(45deg);
+  top: 15px;
+}
+
+#trapezoid text {
+  font-size: x-large;
+  line-height: 32px;
+}
+
+h5,
+h4,
+h2,
+p {
+  margin: 0px;
+}
+
+.p-text {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.bonus-amount {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+.flip-card-back .bonus-amount {
+  font-size: 1.3rem;
+}
+
+.btn {
+  border: none;
+  width: 128px;
+  height: 30px;
+  color: black;
+  cursor: pointer;
+  margin-right: 1px;
+  font-weight: bold;
+}
+
+.fas {
+  font-weight: 900;
+  float: left;
+  color: #f95f1e;
+}
+
+.icon-hide {
+  visibility: hidden;
+}
+
+.flipBtn {
+  position: relative;
+}
+.flipBtn i {
+  position: absolute;
+  left: 10px;
+}
+.flipBtn:hover,
+.flipBtn:hover i {
+  visibility: visible;
+  background-color: antiquewhite;
+}
+.info:hover,
+.join-now:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #f50,
+    0 0 80px #f50, 0 0 90px #f50, 0 0 100px #f50, 0 0 150px #f50;
+}
+
+.join-now {
+  background-color: #f95f1e;
+  color: #fff;
+  margin-left: 5px;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.flip-card {
+  margin: auto;
+  width: 680px;
+  height: 210px;
+  perspective: 1000px;
+}
+
+/* container to position the front and back side */
+
+#flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+#flip-card-inner.flip {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 654px;
+  height: 182px;
+  -webkit-backface-visibility: hidden; /*Safari*/
+  backface-visibility: hidden;
+  text-align: left;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-front {
+  color: black;
+  width: 682px;
+  height: 210px;
+}
+
+/* Style the back side */
+
+.flip-card-back {
+  background-color: #272727;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 14px;
+}
+
+.p-text-flow {
+  max-height: 66px;
+  max-width: 618px;
+  overflow-y: scroll;
+  font-size: 0.8rem;
+  margin: 0px 0px 20px;
+  text-align: justify;
+  padding: 4px 30px 4px 0px;
+  box-shadow: inset 0px -6px 6px 0px #9a938e;
+}
+
+.back {
+  margin-right: 8px;
+}
+
+/* Common styles */
+
+.title-text {
+  color: #83f72f;
+  font-size: 1.1rem;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* Custom scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dbdbdb;
+}
+
+@media only screen and (max-width: 600px) {
+  .flip-card,
+  .flip-card-front,
+  .flip-card-back,
+  .card-details,
+  .card-image > img,
+  .join-now {
+    width: 100%;
+  }
+
+  .flip-card,
+  .flip-card-front,
+  .flip-card-back {
+    overflow: hidden;
+    height: inherit;
+  }
+  .flip-card-back {
+    box-sizing: border-box;
+  }
+  .flip-card {
+    height: 430px;
+  }
+  .card-details {
+    height: auto;
+    box-sizing: border-box;
+  }
+  .card-image > img {
+    height: 198px;
+  }
+  h5,
+  h4,
+  h2,
+  p {
+    font-size: 0.7rem;
+  }
+  .title-text {
+    font-size: 1rem;
+  }
+  .bonus-amount {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  .btn {
+    height: 26px;
+  }
+  .flipBtn,
+  .info {
+    width: 49%;
+  }
+  .info {
+    right: 0;
+  }
+  .button div {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .back {
+    width: 100%;
+  }
+  .join-now {
+    display: block;
+    top: 0px;
+    order: -1;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+  .button {
+    flex-direction: column;
+  }
+  #trapezoid {
+    top: 15px;
+    right: -28px;
+    border-bottom-color: darkgoldenrod;
+  }
+  .p-text-flow {
+    max-height: 274px;
+  }
+}
